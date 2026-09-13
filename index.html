@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#f8cad7">
+  <meta name="description" content="Una sorpresa romántica interactiva hecha con mucho cariño.">
+  <title>Una sorpresa para ti</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath fill='%23d72f65' d='M32 56S6 41 6 20C6 7 23 3 32 16 41 3 58 7 58 20 58 41 32 56 32 56Z'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="petal-field" aria-hidden="true"></div>
+
+  <main class="experience" aria-live="polite">
+    <header class="topbar">
+      <button class="brand" type="button" data-go="0" aria-label="Volver al inicio">
+        <span class="brand-mark" aria-hidden="true">♥</span>
+        <span data-copy="shortTitle">Para ti</span>
+      </button>
+      <button class="icon-button" id="openQr" type="button" aria-label="Mostrar el código QR">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h6v6H4zM14 4h6v6h-6zM4 14h6v6H4zM14 14h2v2h-2zM18 14h2v6h-6v-2h4zM14 16h2v2h-2z"/></svg>
+        <span>Ver QR</span>
+      </button>
+    </header>
+
+    <section class="slide is-active cover" data-slide="0" aria-labelledby="cover-title">
+      <div class="cover-copy">
+        <p class="eyebrow">Una pequeña sorpresa</p>
+        <h1 id="cover-title">Hay algo que<br><em>quiero decirte</em></h1>
+        <p class="intro">Preparé este rincón solo para ti. Ábrelo con calma; cada detalle lleva un poquito de mi corazón.</p>
+        <button class="primary-button" type="button" data-next>
+          Abrir mi sorpresa <span aria-hidden="true">→</span>
+        </button>
+      </div>
+      <div class="cover-art" aria-hidden="true">
+        <div class="stamp">CON<br>AMOR</div>
+        <div class="big-heart">♥</div>
+        <span class="scribble">para mi persona favorita</span>
+      </div>
+    </section>
+
+    <section class="slide love-test" data-slide="1" aria-labelledby="test-title">
+      <div class="section-heading">
+        <p class="eyebrow">Primero, una pregunta importante</p>
+        <h2 id="test-title">¿Cuánto me quieres?</h2>
+        <p id="loveStatus">Mueve la aguja y dime la verdad…</p>
+      </div>
+
+      <div class="love-stage">
+        <figure class="bear-card">
+          <img id="loveBear" src="assets/bear-sad.webp" alt="Osito triste porque el medidor está muy bajo">
+          <figcaption id="bearMood">Ese número rompió su corazoncito…</figcaption>
+        </figure>
+
+        <div class="meter" id="meter" style="--love: 0">
+          <div class="meter-scale" aria-hidden="true">
+            <span>poquito</span><span>muchísimo</span>
+          </div>
+          <div class="meter-number"><strong id="loveValue">0</strong><span>%</span></div>
+          <input id="loveRange" type="range" min="0" max="200" value="0" step="1" aria-label="Porcentaje de amor">
+        </div>
+      </div>
+
+      <div class="slide-actions">
+        <button class="text-button" type="button" data-back>← Atrás</button>
+        <button class="primary-button" id="loveContinue" type="button" data-next disabled>Respuesta final →</button>
+      </div>
+    </section>
+
+    <section class="slide gifts" data-slide="2" aria-labelledby="gifts-title">
+      <div class="section-heading">
+        <p class="eyebrow">Pasaste la prueba del amor</p>
+        <h2 id="gifts-title">Hay tres regalos esperando</h2>
+        <p>Escoge uno. Si quieres, puedes abrirlos todos — aquí no hay reglas.</p>
+      </div>
+
+      <div class="gift-grid" role="group" aria-label="Regalos sorpresa">
+        <button class="gift" type="button" data-gift="1">
+          <span class="gift-icon" aria-hidden="true">🎁</span>
+          <span class="gift-label">Regalo 01</span>
+          <span class="gift-reveal">Un abrazo largo, de esos que arreglan el día.</span>
+        </button>
+        <button class="gift featured" type="button" data-gift="2">
+          <span class="gift-icon" aria-hidden="true">🎁</span>
+          <span class="gift-label">Regalo 02</span>
+          <span class="gift-reveal">Una cita sorpresa; tú eliges el día.</span>
+        </button>
+        <button class="gift" type="button" data-gift="3">
+          <span class="gift-icon" aria-hidden="true">🎁</span>
+          <span class="gift-label">Regalo 03</span>
+          <span class="gift-reveal">Un “te quiero” disponible para siempre.</span>
+        </button>
+      </div>
+
+      <div class="slide-actions">
+        <button class="text-button" type="button" data-back>← Atrás</button>
+        <button class="primary-button" id="giftContinue" type="button" data-next disabled>Siguiente sorpresa →</button>
+      </div>
+    </section>
+
+    <section class="slide bouquet" data-slide="3" aria-labelledby="bouquet-title">
+      <div class="section-heading compact">
+        <p class="eyebrow">Un ramo que nunca se marchita</p>
+        <h2 id="bouquet-title">Flores para ti</h2>
+      </div>
+
+      <div class="bouquet-layout">
+        <p class="note note-a">Haces que mis días tengan más color.</p>
+        <p class="note note-b">Te elegiría una y mil veces.</p>
+        <figure class="bouquet-frame">
+          <img src="assets/bouquet.webp" alt="Ramo ilustrado de rosas rojas">
+        </figure>
+        <p class="note note-c">Mi lugar favorito siempre será contigo.</p>
+        <p class="note note-d">Gracias por existir y coincidir conmigo.</p>
+      </div>
+
+      <div class="slide-actions">
+        <button class="text-button" type="button" data-back>← Atrás</button>
+        <button class="primary-button" type="button" data-next>Escuchar algo →</button>
+      </div>
+    </section>
+
+    <section class="slide song" data-slide="4" aria-labelledby="song-title">
+      <div class="song-collage">
+        <div class="photo-card" aria-hidden="true">
+          <div class="youtube-cover"></div>
+          <span>Soy tuyo · Peint</span>
+        </div>
+        <div class="music-card">
+          <div class="track-copy">
+            <p class="eyebrow">Nuestra canción</p>
+            <h2 id="song-title" data-copy="songTitle">Soy tuyo</h2>
+            <p data-copy="songArtist">Peint</p>
+          </div>
+          <div class="youtube-player">
+            <iframe
+              src="https://www.youtube-nocookie.com/embed/Ya18vA6RNmo?rel=0&playsinline=1"
+              title="Soy tuyo de Peint — reproductor oficial de YouTube"
+              loading="lazy"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen></iframe>
+          </div>
+            <p class="music-note">Pulsa reproducir para escuchar la publicación oficial. Si YouTube no permite verla incrustada, <a href="https://www.youtube.com/watch?v=Ya18vA6RNmo" target="_blank" rel="noopener noreferrer">ábrela directamente en YouTube</a>.</p>
+        </div>
+      </div>
+
+      <div class="slide-actions">
+        <button class="text-button" type="button" data-back>← Atrás</button>
+        <button class="primary-button" type="button" data-next>Leer mi carta →</button>
+      </div>
+    </section>
+
+    <section class="slide letter" data-slide="5" aria-labelledby="letter-title">
+      <div class="letter-sheet">
+        <p class="eyebrow">Una carta desde mi corazón</p>
+        <h2 id="letter-title">Para <span data-copy="recipientName">mi persona favorita</span></h2>
+        <div class="letter-copy" data-copy="letterHtml">
+          <p>Gracias por llenar mis días de momentos bonitos, de sonrisas inesperadas y de esa calma que solo encuentro contigo.</p>
+          <p>Me haces sentir afortunado de coincidir en este mundo. Quiero seguir construyendo recuerdos, celebrando tus alegrías y acompañándote incluso en los días difíciles.</p>
+          <p>No importa qué pase: volvería a escogerte. Hoy, mañana y todas las veces que haga falta.</p>
+        </div>
+        <p class="signature">Siempre tuyo,<br><strong data-copy="senderName">alguien que te ama</strong> ♥</p>
+      </div>
+
+      <div class="slide-actions">
+        <button class="text-button" type="button" data-back>← Atrás</button>
+        <button class="primary-button" type="button" data-next>Una última cosa →</button>
+      </div>
+    </section>
+
+    <section class="slide finale" data-slide="6" aria-labelledby="finale-title">
+      <div class="final-heart" aria-hidden="true">♥</div>
+      <p class="eyebrow">Y por si aún quedaba alguna duda</p>
+      <h2 id="finale-title">Te elijo a ti.</h2>
+      <p>Gracias por llegar hasta aquí y por ser parte de mi historia.</p>
+      <div class="final-actions">
+        <button class="primary-button" id="shareButton" type="button">Compartir esta sorpresa</button>
+        <button class="text-button" type="button" data-go="0">Volver a verla ↺</button>
+      </div>
+    </section>
+
+    <nav class="progress" aria-label="Progreso de la sorpresa">
+      <span id="progressText">1 de 7</span>
+      <div class="progress-track"><span id="progressBar"></span></div>
+    </nav>
+  </main>
+
+  <dialog class="qr-dialog" id="qrDialog">
+    <button class="dialog-close" id="closeQr" type="button" aria-label="Cerrar">×</button>
+    <p class="eyebrow">Escanea y abre la sorpresa</p>
+    <h2>Código QR</h2>
+    <img src="assets/heart-qr.png" alt="Código QR dentro de un corazón rosa">
+    <p class="qr-help">Apunta la cámara del teléfono al centro. El código abre esta misma experiencia.</p>
+    <div class="dialog-actions">
+      <a class="primary-button" href="assets/heart-qr.png" download="codigo-qr-amor.png">Descargar QR</a>
+      <button class="text-button" id="copyLink" type="button">Copiar enlace</button>
+    </div>
+  </dialog>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="app.js"></script>
+</body>
+</html>
+
